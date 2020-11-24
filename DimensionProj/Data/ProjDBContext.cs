@@ -148,15 +148,11 @@ namespace DimensionProj.Data
                 entity.HasKey(e => e.SalaryId);
 
                 entity.ToTable("CostToCompany");
-
-                entity.Property(e => e.SalaryId).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<Department>(entity =>
             {
                 entity.ToTable("Department");
-
-                entity.Property(e => e.DepartmentId).ValueGeneratedNever();
 
                 entity.Property(e => e.Department1).HasColumnName("Department");
             });
@@ -166,8 +162,6 @@ namespace DimensionProj.Data
                 entity.HasKey(e => e.EducationId);
 
                 entity.ToTable("EmpEducation");
-
-                entity.Property(e => e.EducationId).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<EmpHisory>(entity =>
@@ -175,8 +169,6 @@ namespace DimensionProj.Data
                 entity.HasKey(e => e.EmpHistoryId);
 
                 entity.ToTable("EmpHisory");
-
-                entity.Property(e => e.EmpHistoryId).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<EmpPerformance>(entity =>
@@ -184,8 +176,6 @@ namespace DimensionProj.Data
                 entity.HasKey(e => e.PerfomanceId);
 
                 entity.ToTable("EmpPerformance");
-
-                entity.Property(e => e.PerfomanceId).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<Employee>(entity =>
@@ -193,8 +183,6 @@ namespace DimensionProj.Data
                 entity.HasKey(e => e.EmployeeNumber);
 
                 entity.ToTable("Employee");
-
-                entity.Property(e => e.EmployeeNumber).ValueGeneratedNever();
 
                 entity.Property(e => e.Age).HasMaxLength(80);
             });
@@ -220,15 +208,11 @@ namespace DimensionProj.Data
                 entity.HasKey(e => e.JobInfoId);
 
                 entity.ToTable("JobInformation");
-
-                entity.Property(e => e.JobInfoId).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<Survey>(entity =>
             {
                 entity.ToTable("Survey");
-
-                entity.Property(e => e.SurveyId).ValueGeneratedNever();
             });
 
             OnModelCreatingPartial(modelBuilder);

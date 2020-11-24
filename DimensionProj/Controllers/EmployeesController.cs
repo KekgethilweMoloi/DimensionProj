@@ -28,7 +28,7 @@ namespace DimensionProj.Controllers
         // GET: Employees/Create
         public IActionResult AddOrEdit(int id=0)
         {
-            if (id == 0)
+            if (id==0)
                 return View(new Employee());
             else
                 return View(_context.Employees.Find(id));
@@ -43,7 +43,7 @@ namespace DimensionProj.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(employee.EmployeeNumber ==0)
+                if(employee.EmployeeNumber == 0)
                     _context.Add(employee);
                 else
                     _context.Update(employee);

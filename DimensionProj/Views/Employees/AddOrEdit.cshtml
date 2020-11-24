@@ -4,18 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
-<h4>Employee</h4>
+<h4>Employee Form</h4>
 <hr />
 <div class="row">
     <div class="col-md-6">
         <form asp-action="AddOrEdit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="EmployeeNumber" />
-            <div class="form-group">
-                <label asp-for="EmployeeNumber" class="control-label"></label>
-                <input asp-for="EmployeeNumber" class="form-control" />
-                <span asp-validation-for="EmployeeNumber" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="EmployeeNumber"/>
             <div class="form-group">
                 <label asp-for="FullName" class="control-label"></label>
                 <input asp-for="FullName" class="form-control" />

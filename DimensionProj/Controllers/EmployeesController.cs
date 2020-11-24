@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using DimensionProj.Data;
 using DimensionProj.Models;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
+using Microsoft.Data.SqlClient;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace DimensionProj.Controllers
 {
@@ -62,8 +65,43 @@ namespace DimensionProj.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public JsonResult DashBoardcount()
+        {
+            try 
+            {
+                string [] DashBoardcount = new string[2];
+
+                SqlConnection con = new SqlConnection(ConnectionString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select count(gender) as male ,(select count(gender) from EmployeeDetails where Gender = 'female') as female from EmployeeDetails where Gender  = 'male'", con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter cmd1 = new SqlDataAdapter(cmd)
+;
+                cmd1.fill(dt);
+                if(dt.Rows.Coutn == 0)
+                {
+                    DashBoardcount[0] = "0";
+                    DashBoardcount[1] = "0";
+                }
+
+                else
+                {
+                    DashBoardcount[0] = dt.rows[0]["male"].ToString();
+                    DashBoardcount[1] = dt.rows[0]["female"].ToString();
+                }
+                return Json(new { DashBoardcount }, JsonRequestBehaviour.AllowGet);
+               
 
 
+            catch (Exception ex) 
+            { 
+                throw ex; 
+            }
+        }
 
+        private JsonResult Json(object p, object allowGet)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace DimensionProj.Controllers
-{
+{   
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -29,17 +29,10 @@ namespace DimensionProj.Controllers
         {
             return View();
         }
-        [Authorize]
-        public IActionResult employeeIndex()
-        {
-            return View();
-        }
+        
 
-        [Authorize]
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

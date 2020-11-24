@@ -29,9 +29,17 @@ namespace DimensionProj.Controllers
         {
             return View();
         }
-        
+        [Authorize]
+        public IActionResult Index1()
+        {
+            return View();
 
-
+        }
+        [Authorize]
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

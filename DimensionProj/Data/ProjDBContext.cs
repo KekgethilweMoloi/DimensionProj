@@ -152,6 +152,8 @@ namespace DimensionProj.Data
 
             modelBuilder.Entity<Department>(entity =>
             {
+                entity.HasKey(e => e.DepId);
+
                 entity.ToTable("Department");
 
                 entity.Property(e => e.Department1).HasColumnName("Department");
@@ -183,8 +185,6 @@ namespace DimensionProj.Data
                 entity.HasKey(e => e.EmployeeNumber);
 
                 entity.ToTable("Employee");
-
-                entity.Property(e => e.Age).HasMaxLength(80);
             });
 
             modelBuilder.Entity<EmployeeDetail>(entity =>

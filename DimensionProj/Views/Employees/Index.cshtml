@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<DimensionProj.Models.Employee>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "View Employees";
 }
 
 <h4>Employee Register</h4>
@@ -42,32 +42,32 @@
 
 		@foreach (var item in Model)
 		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.FullName)
-				</td>
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.FullName)
+			</td>
 
-				<td>
-					@Html.DisplayFor(modelItem => item.Age)
-				</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Age)
+			</td>
 
-				<td>
-					@Html.DisplayFor(modelItem => item.Email)
-				</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Email)
+			</td>
 
-				<td>
-					@Html.DisplayFor(modelItem => item.JobRole)
-				</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.JobRole)
+			</td>
 
-				<td>
-					@Html.DisplayFor(modelItem => item.Department)
-				</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Department)
+			</td>
 
-				<td>
-					<a asp-action="AddOrEdit" asp-route-id="@item.EmployeeNumber">Edit</a> |
-					<a asp-action="Delete" asp-route-id="@item.EmployeeNumber" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
-				</td>
-			</tr>
+			<td>
+				<a asp-action="AddOrEdit" asp-route-id="@item.EmployeeNumber">Edit</a> |
+				<a asp-action="Delete" asp-route-id="@item.EmployeeNumber" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+			</td>
+		</tr>
 		}
 	</tbody>
 </table>

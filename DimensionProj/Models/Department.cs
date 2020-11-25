@@ -7,7 +7,7 @@ namespace DimensionProj.Models
 {
     public partial class Department
     {
-        public int DepartmentId { get; set; }
+        public int DepId { get; set; }
         public string Department1 { get; set; }
     }
 }

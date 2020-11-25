@@ -23,6 +23,7 @@ namespace DimensionProj.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: Employees
         public async Task<IActionResult> Index()
         {
